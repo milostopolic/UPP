@@ -1,0 +1,30 @@
+<div id="velikiDiv">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)" ngNativeValidate>
+
+    <div class="form-group" *ngFor="let field of formFields">
+      <label for={{field.id}}>{{field.label}}</label>
+
+
+      <select *ngIf="field.id=='urednici'" class="form-control" multiple name="field.id" [(ngModel)]="selectedEds"
+        (change)="onChange()">
+        <option *ngFor="let ed of eds" [ngValue]="ed.id">
+          {{ed.ime}} {{ed.prezime}}
+        </option>
+      </select>
+
+      <select *ngIf="field.id=='recenzenti'" class="form-control" multiple name="field.id" [(ngModel)]="selectedRevs"
+        (change)="onChange()">
+        <option *ngFor="let rev of revs" [ngValue]="rev.id">
+          {{rev.ime}} {{rev.prezime}}
+        </option>
+      </select>
+
+    </div>
+
+
+    <input [disabled]="!mozeSubmit" class="btn btn-success" type="submit">
+  </form><br>
+
+  
+
+</div>

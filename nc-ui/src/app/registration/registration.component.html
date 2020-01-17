@@ -1,0 +1,27 @@
+<div id="velikiDiv">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)" ngNativeValidate>
+
+    <div class="form-group" *ngFor="let field of formFields">
+      <label for={{field.id}}>{{field.label}}</label>
+
+      <input class="form-control" type="text" name={{field.id}} ngModel *ngIf="field.type.name=='string'">
+      <input class="form-control" type="checkbox" name={{field.id}} ngModel *ngIf="field.type.name=='boolean'">
+      <input class="form-control" type="number" name={{field.id}} ngModel *ngIf="field.type.name=='long'">
+      <select class="form-control" name="field.id" *ngIf="field.type.name=='enum'">
+        <option *ngFor="let val of enumValues" value={{val}}>
+          {{field.type.values[val]}}
+        </option>
+      </select>
+    </div>
+
+
+    <input [disabled]="!mozeSubmit" class="btn btn-success" type="submit">
+  </form><br>
+  <div class="form-group">
+    <select class="form-control" multiple name="field.id" [(ngModel)]="selectedValues" (change)="onChange()">
+      <option *ngFor="let naucnaOblast of naucneOblasti" [ngValue]="naucnaOblast.id">
+        {{naucnaOblast.naziv}}
+      </option>
+    </select>
+  </div>
+</div>

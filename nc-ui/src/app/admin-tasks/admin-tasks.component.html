@@ -1,0 +1,22 @@
+<div id="velikiDiv">
+  <div class="form-group">
+    <table>
+      <tr *ngFor="let task of tasksR">
+        <td>{{task.name}}</td>
+        <td>{{task.assignee}}</td>
+        <td><button class="btn btn-success" (click)="claimR(task.taskId)">Claim</button></td>
+      </tr>
+
+    </table>
+  </div>
+  <div class="form-group">
+    <table>
+      <tr *ngFor="let task of tasksC">
+        <td>{{task.name}}</td>
+        <td>{{task.assignee}}</td>
+        <td><button class="btn btn-success" (click)="claimC(task.taskId)">Claim</button></td>
+      </tr>
+
+    </table>
+  </div>
+</div>
