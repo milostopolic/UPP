@@ -23,9 +23,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "roles")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Role {
 	
 	@Id
@@ -47,6 +45,41 @@ public class Role {
         this.name = name;
         this.permissions = permissions;
     }
+
+	public Role() {
+		super();
+	}
+
+	public Role(Long id, RoleName name, Set<Permission> permissions) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.permissions = permissions;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public RoleName getName() {
+		return name;
+	}
+
+	public void setName(RoleName name) {
+		this.name = name;
+	}
+
+	public Set<Permission> getPermissions() {
+		return permissions;
+	}
+
+	public void setPermissions(Set<Permission> permissions) {
+		this.permissions = permissions;
+	}
 
 
 

@@ -9,9 +9,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +27,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedEntityGraph(name = "Korisnik.Roles.Permissions", 
+	attributeNodes = @NamedAttributeNode(value = "roles", subgraph = "permissions"), 
+	subgraphs = @NamedSubgraph(name = "permissions", attributeNodes = @NamedAttributeNode("permissions")))
+@Inheritance(
+	    strategy = InheritanceType.JOINED
+	)
 public class Korisnik {
 
 	@Id

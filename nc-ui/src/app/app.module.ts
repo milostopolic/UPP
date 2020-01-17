@@ -22,6 +22,7 @@ import { AdminTasksComponent } from './admin-tasks/admin-tasks.component';
 import { NewMagazineComponent } from './new-magazine/new-magazine.component';
 import { ChooseRevAndEdComponent } from './choose-rev-and-ed/choose-rev-and-ed.component';
 import { ConfirmMagazineComponent } from './confirm-magazine/confirm-magazine.component';
+import { LoginComponent } from './login/login.component';
 
 const ChildRoutes =
   [
@@ -67,6 +68,11 @@ const Routes = [
     path: "chooseRevAndEd/:processId",
     component: ChooseRevAndEdComponent,
     canActivate: [Notauthorized]
+  },
+  {
+    path: "login",
+    component: LoginComponent,
+    canActivate: [Notauthorized]
   }
 ]
 
@@ -79,7 +85,8 @@ const Routes = [
     AdminTasksComponent,
     NewMagazineComponent,
     ChooseRevAndEdComponent,
-    ConfirmMagazineComponent
+    ConfirmMagazineComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

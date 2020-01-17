@@ -76,13 +76,14 @@ public class CasopisController {
         return new FormFieldsDto(task.getId(), pi.getId(), properties);
     }
 	
-	@PostMapping(path = "/post/{taskId}", produces = "application/json")
-    public @ResponseBody ResponseEntity<?> post(@RequestBody List<FormSubmissionDto> dto, @PathVariable String taskId) {
+	@PostMapping(path = "/post/{taskId}/{uid}", produces = "application/json")
+    public @ResponseBody ResponseEntity<?> post(@RequestBody List<FormSubmissionDto> dto, @PathVariable String taskId, @PathVariable String uid) {
 		HashMap<String, Object> map = this.mapListToDto(dto);		
 		
 		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
 		String processInstanceId = task.getProcessInstanceId();
 		runtimeService.setVariable(processInstanceId, "casopisForma", dto);
+		runtimeService.setVariable(processInstanceId, "uid", uid);
 		formService.submitTaskForm(taskId, map);
         return new ResponseEntity<>(HttpStatus.OK);
     }

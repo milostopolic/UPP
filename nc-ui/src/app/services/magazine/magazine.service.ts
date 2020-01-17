@@ -17,8 +17,8 @@ export class MagazineService {
     return this.httpClient.get('http://localhost:8080/casopis/get');
   }
 
-  postMagazine(user, taskId) {
-    return this.httpClient.post("http://localhost:8080/casopis/post/".concat(taskId), user) as Observable<any>;
+  postMagazine(user, taskId, uid) {
+    return this.httpClient.post("http://localhost:8080/casopis/post/".concat(taskId)+"/"+uid, user) as Observable<any>;
   }
 
   getRevsAndEditors(processId) : Observable<any> {

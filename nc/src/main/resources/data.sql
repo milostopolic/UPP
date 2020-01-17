@@ -20,17 +20,20 @@ insert into roles (id, name) values (4, 'ADMIN');
 
 -- Korisnici
 insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
-values ("aut1", "password", 1, "Srbija", "aut1@gmail.com", 1, "Novi Sad", "Autor", 1, "Docent", 1, "dr");
+values ("aut1", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "aut1@gmail.com", 1, "Novi Sad", "Autor", 1, "Docent", 1, "dr");
 insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
-values ("rec1", "password", 1, "Srbija", "rec1@gmail.com", 1, "Novi Sad", "Dime", 1, "Dimic", 1, "dr");
+values ("rec1", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "rec1@gmail.com", 1, "Novi Sad", "Dime", 1, "Dimic", 1, "dr");
 insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
-values ("rec2", "password", 1, "Srbija", "rec2@gmail.com", 1, "Novi Sad", "Mile", 1, "Milic", 1, "dr");
+values ("rec2", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "rec2@gmail.com", 1, "Novi Sad", "Mile", 1, "Milic", 1, "dr");
 insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
-values ("rec3", "password", 1, "Srbija", "rec3@gmail.com", 1, "Novi Sad", "Ana", 1, "Nas", 1, "dr");
+values ("rec3", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "rec3@gmail.com", 1, "Novi Sad", "Ana", 1, "Nas", 1, "dr");
 insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
-values ("ur1", "password", 1, "Srbija", "ur1@gmail.com", 1, "Novi Sad", "Boban", 1, "Bob", 1, "dr");
+values ("ur1", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "ur1@gmail.com", 1, "Novi Sad", "Boban", 1, "Bob", 1, "dr");
 insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
-values ("ur1", "password", 1, "Srbija", "ur2@gmail.com", 1, "Novi Sad", "Stojke", 1, "Doktor", 1, "dr");
+values ("ur1", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "ur2@gmail.com", 1, "Novi Sad", "Stojke", 1, "Doktor", 1, "dr");
+insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
+values ("admin", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "admin@gmail.com", 1, "Novi Sad", "Admin", 1, "Adam", 1, "dr");
+
 
 -- Korisnici i Role
 insert into korisnik_roles (korisnik_id, role_id) values (1, 3);
@@ -39,6 +42,7 @@ insert into korisnik_roles (korisnik_id, role_id) values (3, 2);
 insert into korisnik_roles (korisnik_id, role_id) values (4, 2);
 insert into korisnik_roles (korisnik_id, role_id) values (5, 3);
 insert into korisnik_roles (korisnik_id, role_id) values (6, 3);
+insert into korisnik_roles (korisnik_id, role_id) values (7, 4);
 
 -- Casopisi
 insert into casopis (aktiviran, issn, nacin_placanja, naziv, glavni_urednik_id) values (1, "123765", "pretplata", "Prvi Casopis", 1);

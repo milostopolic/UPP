@@ -13,6 +13,7 @@ import root.demo.model.Casopis;
 import root.demo.model.FormSubmissionDto;
 import root.demo.model.NaucnaOblast;
 import root.demo.repository.CasopisRepository;
+import root.demo.repository.KorisnikRepository;
 import root.demo.repository.NaucnaOblastRepository;
 @Service
 public class CreateMagazineService implements JavaDelegate {
@@ -22,6 +23,9 @@ public class CreateMagazineService implements JavaDelegate {
 	
 	@Autowired
 	private NaucnaOblastRepository norepo;
+	
+	@Autowired
+	private KorisnikRepository krepo;
 
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
@@ -67,6 +71,11 @@ public class CreateMagazineService implements JavaDelegate {
 				}
 			}
 		}
+		
+		String korid =  (String) execution.getVariable("uid");
+		
+		casopis.setGlavniUrednik(krepo.getOne(Long.parseLong(korid)));
+		
 		if(validation) {
 			execution.setVariable("validation", true);
 			crepo.save(casopis);

@@ -2,16 +2,15 @@ package root.demo.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.camunda.bpm.engine.IdentityService;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.engine.identity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import root.demo.model.FormSubmissionDto;
@@ -34,6 +33,8 @@ public class TestService implements JavaDelegate {
 	private NaucnaOblastRepository norepo;
 	@Autowired
 	private RoleRepository rrepo;
+	@Autowired
+    PasswordEncoder encoder;
 
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
@@ -59,7 +60,7 @@ public class TestService implements JavaDelegate {
 			if (formField.getFieldId().equals("password")) {
 				if(formField.getFieldValue() != null) {
 					user.setPassword(formField.getFieldValue());
-					korisnik.setPassword(formField.getFieldValue());
+					korisnik.setPassword(encoder.encode(formField.getFieldValue()));
 				} else {
 					validation = false;
 					break;

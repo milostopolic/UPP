@@ -6,7 +6,8 @@
       <a class="nav-item nav-link active" [routerLink]="['/registrate']">Register<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" [routerLink]="['/newMagazine']">New Magazine</a>
       <a class="nav-item nav-link" [routerLink]="['/adminTasks']">Admin's Tasks</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      <a class="nav-item nav-link" [routerLink]="['/login']">Login</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
   </div>
 </nav>
