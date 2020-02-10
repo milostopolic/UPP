@@ -521,7 +521,7 @@
       <bpmn:outgoing>SequenceFlow_1sgsrud</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_1rreymc" sourceRef="Task_13pyrfl" targetRef="Task_0jrniuv" />
-    <bpmn:userTask id="Task_13pyrfl" name="Add Coauthor">
+    <bpmn:userTask id="Task_13pyrfl" name="Add Coauthor" camunda:assignee="${initiator}">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="coauthorFormName" label="Coauthor Name" type="string" />
@@ -533,7 +533,7 @@
       <bpmn:outgoing>SequenceFlow_1rreymc</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="SequenceFlow_0alffmf" sourceRef="Task_0jrniuv" targetRef="ExclusiveGateway_1mxe1m8" />
-    <bpmn:serviceTask id="Task_0jrniuv" name="Save Coauthor" camunda:class="root.demo.workService.saveCoauthorService">
+    <bpmn:serviceTask id="Task_0jrniuv" name="Save Coauthor" camunda:class="root.demo.workServices.SaveCoauthorService">
       <bpmn:incoming>SequenceFlow_1rreymc</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0alffmf</bpmn:outgoing>
     </bpmn:serviceTask>

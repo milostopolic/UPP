@@ -11,6 +11,7 @@ import root.demo.model.FormSubmissionDto;
 import root.demo.model.Koautor;
 import root.demo.model.NaucniRad;
 import root.demo.repository.CasopisRepository;
+import root.demo.repository.KoautorRepository;
 import root.demo.repository.KorisnikRepository;
 import root.demo.repository.NaucnaOblastRepository;
 import root.demo.repository.NaucniRadRepository;
@@ -29,10 +30,15 @@ public class SaveCoauthorService implements JavaDelegate {
 	
 	@Autowired
 	private NaucniRadRepository nrrepo;
+	
+	@Autowired
+	private KoautorRepository korepo;
+	
+	
 
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
-		List<FormSubmissionDto> casopisForma = (List<FormSubmissionDto>) execution.getVariable("workBasicInfo");
+		List<FormSubmissionDto> casopisForma = (List<FormSubmissionDto>) execution.getVariable("coauthorForm");
 		NaucniRad nr = new NaucniRad();
 		Long nid = (Long) execution.getVariable("nrId");
 		nr = nrrepo.getOne(nid);
@@ -63,10 +69,10 @@ public class SaveCoauthorService implements JavaDelegate {
 		}
 		
 		nr.getKoautori().add(ka);
-		
+		korepo.save(ka);
 		nrrepo.save(nr);
 		
-		Integer broj = (Integer) execution.getVariable("workFormCoauthors");
+		Long broj = (Long) execution.getVariable("workFormCoauthors");
 		execution.setVariable("workFormCoauthors", broj-1);
 		
 	}

@@ -87,6 +87,10 @@ export class WorkService {
     return this.httpClient.post("http://localhost:8080/work/postNewRev/".concat(taskId), user) as Observable<any>;
   }
 
+  addCoauthor(user, taskId) {
+    return this.httpClient.post("http://localhost:8080/work/postCoauthor/".concat(taskId), user) as Observable<any>;
+  }
+
   postDeadline(user, taskId) {
     return this.httpClient.post("http://localhost:8080/work/postDeadline/".concat(taskId), user) as Observable<any>;
   }

@@ -37,6 +37,7 @@ import { FinalDecisionComponent } from './final-decision/final-decision.componen
 import { ChangesMinorComponent } from './changes-minor/changes-minor.component';
 import { ChangesMajorComponent } from './changes-major/changes-major.component';
 import { ChooseNewComponent } from './choose-new/choose-new.component';
+import { AddCoauthorComponent } from './add-coauthor/add-coauthor.component';
 
 const ChildRoutes =
   [
@@ -157,6 +158,11 @@ const Routes = [
     path: "chooseNew/:taskId",
     component: ChooseNewComponent,
     canActivate: [Notauthorized]
+  },
+  {
+    path: "addCoauthor/:taskId",
+    component: AddCoauthorComponent,
+    canActivate: [Notauthorized]
   }
 ]
 
@@ -184,7 +190,8 @@ const Routes = [
     FinalDecisionComponent,
     ChangesMinorComponent,
     ChangesMajorComponent,
-    ChooseNewComponent
+    ChooseNewComponent,
+    AddCoauthorComponent
   ],
   imports: [
     BrowserModule,

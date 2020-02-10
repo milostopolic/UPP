@@ -66,6 +66,9 @@ export class ChiefEditorTasksComponent implements OnInit {
     if(name=="Choose New Reviewer") {
       this.router.navigate(["chooseNew/"+taskId]);
     }
+    if(name=="Add Coauthor") {
+      this.router.navigate(["addCoauthor/"+taskId]);
+    }
     
   }
 

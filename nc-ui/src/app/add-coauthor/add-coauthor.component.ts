@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/users/user.service';
 import { RepositoryService } from '../services/repository/repository.service';
@@ -9,11 +10,11 @@ import { WorkService } from '../services/work.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
-  selector: 'app-new-work',
-  templateUrl: './new-work.component.html',
-  styleUrls: ['./new-work.component.css']
+  selector: 'app-add-coauthor',
+  templateUrl: './add-coauthor.component.html',
+  styleUrls: ['./add-coauthor.component.css']
 })
-export class NewWorkComponent implements OnInit {
+export class AddCoauthorComponent implements OnInit {
 
   private formFieldsDto = null;
   private formFields = [];
@@ -48,18 +49,9 @@ export class NewWorkComponent implements OnInit {
 
     };
 
-    this.repositoryService.getNaucneOblasti().subscribe(res => {
-      let here = res;
-      // console.log(res);
-      here.forEach(element => {
-        let prom = { item_id: element.id, item_text: element.naziv };
-        console.log(prom);
-        this.dropDownList.push(prom);
-        console.log(this.dropDownList);
-      });
-    });
+    
 
-    let x = workService.getOneTask(this.activatedRoute.snapshot.params.taskId);
+    let x = workService.claimTask(this.activatedRoute.snapshot.params.taskId);
 
     x.subscribe(
       res => {
@@ -106,10 +98,9 @@ export class NewWorkComponent implements OnInit {
   onSubmit(value, form) {
     let o = new Array();
    
-    this.workService.uploadFile(this.fileToUpload).subscribe(response => {
+    
 
-      console.log(response);
-      o.push({ fieldId: "workFormPdf", fieldValue: response });
+      
 
       // if (this.selectedItems.length != 1) {
       //   alert("Molimo vas da odaberete jedan casopis");
@@ -133,12 +124,12 @@ export class NewWorkComponent implements OnInit {
   
         this.authService.getLogged().subscribe(logged => {
           this.user = logged;
-          let x = this.workService.postBasicInfo(o, this.formFieldsDto.taskId);
+          let x = this.workService.addCoauthor(o, this.formFieldsDto.taskId);
           x.subscribe(
             res => {
               console.log(res);
               this.next = true;
-              alert("You registered successfully!")
+              alert("You registered successfully!");
             },
             err => {
               console.log("Error occured");
@@ -148,7 +139,7 @@ export class NewWorkComponent implements OnInit {
         });
       // }
 
-    });
+    
     
     
   }
