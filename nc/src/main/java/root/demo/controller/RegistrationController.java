@@ -34,7 +34,7 @@ import root.demo.repository.NaucnaOblastRepository;
 @Controller
 @RequestMapping("/welcome")
 @CrossOrigin
-public class DummyController {
+public class RegistrationController {
 	@Autowired
 	IdentityService identityService;
 	

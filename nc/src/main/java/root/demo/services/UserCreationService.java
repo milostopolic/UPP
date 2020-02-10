@@ -23,7 +23,7 @@ import root.demo.repository.NaucnaOblastRepository;
 import root.demo.repository.RoleRepository;
 
 @Service
-public class TestService implements JavaDelegate {
+public class UserCreationService implements JavaDelegate {
 
 	@Autowired
 	IdentityService identityService;

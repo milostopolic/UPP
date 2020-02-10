@@ -19,6 +19,8 @@ import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -83,6 +85,9 @@ public class Korisnik {
 	
 	@OneToMany(mappedBy = "glavniUrednik")
 	private List<Casopis> casopisiGlUred;
+	
+	@OneToMany(mappedBy="autor")
+	private List<NaucniRad> naucniRadovi;
 	
 	public Korisnik(String s, String ss, Set<Role> set) {
 		this.email = s;

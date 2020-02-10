@@ -25,10 +25,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import root.demo.dto.RecUrednikDTO;
+import root.demo.model.Casopis;
 import root.demo.model.FormFieldsDto;
 import root.demo.model.FormSubmissionDto;
 import root.demo.model.Korisnik;
 import root.demo.model.TaskDto;
+import root.demo.repository.CasopisRepository;
 import root.demo.repository.KorisnikRepository;
 
 @Controller
@@ -50,6 +52,9 @@ public class CasopisController {
 	
 	@Autowired
 	FormService formService;
+	
+	@Autowired
+	private CasopisRepository crepo;
 	
 	private HashMap<String, Object> mapListToDto(List<FormSubmissionDto> list)
 	{
@@ -168,5 +173,12 @@ public class CasopisController {
 		formService.submitTaskForm(taskId, map);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+	
+	@GetMapping(path = "/getAllMagazines", produces = "application/json")
+	public @ResponseBody ResponseEntity<List<Casopis>> getAllMagaz() {
+		List<Casopis> cas = new ArrayList<>();
+		cas = crepo.findAll();
+		return new ResponseEntity<List<Casopis>>(cas, HttpStatus.OK);
+	}
 
 }

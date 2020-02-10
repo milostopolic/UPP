@@ -30,9 +30,31 @@ values ("rec3", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 
 insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
 values ("ur1", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "ur1@gmail.com", 1, "Novi Sad", "Boban", 1, "Bob", 1, "dr");
 insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
-values ("ur1", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "ur2@gmail.com", 1, "Novi Sad", "Stojke", 1, "Doktor", 1, "dr");
+values ("ur2", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "ur2@gmail.com", 1, "Novi Sad", "Stojke", 1, "Doktor", 1, "dr");
 insert into korisnik (username, password, aktiviran, drzava, email, enabled, grad, ime, non_locked, prezime, recenzent, titula)
 values ("admin", '$2a$10$DAcNYGf.8duU0iHRcuYw8uNJ8oeJULYlwZoM/H4eQXk2zdN4dn9oe', 1, "Srbija", "admin@gmail.com", 1, "Novi Sad", "Admin", 1, "Adam", 1, "dr");
+
+-- Korisnici i NaucneOblasti
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (2, 1);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (2, 2);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (2, 3);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (2, 4);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (3, 1);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (3, 2);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (3, 3);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (3, 4);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (4, 1);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (4, 2);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (4, 3);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (4, 4);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (5, 1);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (5, 2);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (5, 3);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (5, 4);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (6, 1);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (6, 2);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (6, 3);
+insert into korisnik_naucna_oblast (korisnik_id, naucna_oblast_id) values (6, 4);
 
 
 -- Korisnici i Role
@@ -45,11 +67,14 @@ insert into korisnik_roles (korisnik_id, role_id) values (6, 3);
 insert into korisnik_roles (korisnik_id, role_id) values (7, 4);
 
 -- Casopisi
-insert into casopis (aktiviran, issn, nacin_placanja, naziv, glavni_urednik_id) values (1, "123765", "pretplata", "Prvi Casopis", 1);
+insert into casopis (aktiviran, issn, nacin_placanja, naziv, glavni_urednik_id) values (1, "1122334455", "pretplata", "Prvi Casopis", 7);
+insert into casopis (aktiviran, issn, nacin_placanja, naziv, glavni_urednik_id) values (1, "1111223344", "pretplata", "Drugi Casopis", 7);
 
 -- Casopisi i Naucne Oblasti
 insert into casopis_naucna_oblast (casopis_id, naucna_oblast_id) values (1, 1);
 insert into casopis_naucna_oblast (casopis_id, naucna_oblast_id) values (1, 2);
+insert into casopis_naucna_oblast (casopis_id, naucna_oblast_id) values (2, 4);
+insert into casopis_naucna_oblast (casopis_id, naucna_oblast_id) values (2, 5);
 
 --Casopisi i Recenzenti
 insert into casopis_recenzenti (casopis_id, korisnik_id) values (1, 2);

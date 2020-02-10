@@ -1,11 +1,14 @@
 package root.demo.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FormSubmissionDto implements Serializable{
 	
 	String fieldId;
 	String fieldValue;
+	List<String> enumi = new ArrayList();
 	
 	
 	public FormSubmissionDto() {
@@ -34,6 +37,15 @@ public class FormSubmissionDto implements Serializable{
 	public void setFieldValue(String fieldValue) {
 		this.fieldValue = fieldValue;
 	}
+
+	public List<String> getEnumi() {
+		return enumi;
+	}
+
+	public void setEnumi(List<String> enumi) {
+		this.enumi = enumi;
+	}
+
 	
 	
 }

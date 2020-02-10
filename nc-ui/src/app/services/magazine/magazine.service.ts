@@ -49,4 +49,8 @@ export class MagazineService {
     return this.httpClient.post("http://localhost:8080/casopis/postMagConfirmation/".concat(taskId), user) as Observable<any>;
   }
 
+  getAll() : Observable<any> {
+    return this.httpClient.get('http://localhost:8080/casopis/getAllMagazines/');
+  }
+
 }

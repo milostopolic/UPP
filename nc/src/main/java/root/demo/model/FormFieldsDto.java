@@ -8,6 +8,7 @@ public class FormFieldsDto {
 	String taskId;
 	List<FormField> formFields;
 	String processInstanceId;
+	Long weed;
 
 	public FormFieldsDto(String taskId, String processInstanceId, List<FormField> formFields) {
 		super();
@@ -15,6 +16,16 @@ public class FormFieldsDto {
 		this.formFields = formFields;
 		this.processInstanceId = processInstanceId;
 	}
+	
+	public FormFieldsDto(String taskId, List<FormField> formFields, String processInstanceId, Long weed) {
+		super();
+		this.taskId = taskId;
+		this.formFields = formFields;
+		this.processInstanceId = processInstanceId;
+		this.weed = weed;
+	}
+
+
 
 	public FormFieldsDto() {
 		super();
@@ -42,6 +53,14 @@ public class FormFieldsDto {
 
 	public void setProcessInstanceId(String processInstanceId) {
 		this.processInstanceId = processInstanceId;
+	}
+
+	public Long getWeed() {
+		return weed;
+	}
+
+	public void setWeed(Long weed) {
+		this.weed = weed;
 	}
 	
 	

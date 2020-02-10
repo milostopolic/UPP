@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -56,5 +57,12 @@ public class Casopis {
 	@JsonIgnore
 	@ManyToOne
     protected Korisnik glavniUrednik;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="casopis")
+	private List<NaucniRad> naucniRadovi;
+	
+	
+	
 
 }
